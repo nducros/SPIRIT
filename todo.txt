@@ -1,0 +1,5 @@
+SPIRiT version 2.1 may:
+* Regenerate patterns when the pattern bit number opt.b has changed
+* Generate patterns for all decomposition levels (length of opt.p) and load
+only the ones for the specifieed decomposition level. The sets of patterns
+for different decomposition levels are redondant.  

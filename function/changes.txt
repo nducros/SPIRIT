@@ -1,0 +1,8 @@
+Spirit 1.0 -> 2.0
+-----------------
+* Some variables were renamed:
+    - 'wavelet_name' -> 'wav'
+    - 'N_0' -> 'n0'
+    - 'Delta_t' -> 'dt'
+    - 'data_set_name' -> 'data_set'
+    - 'wavelet_type' -> patName

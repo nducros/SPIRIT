@@ -1,0 +1,30 @@
+abswp
+	> dispparam
+		> cr
+	> fwt2
+		> FWT2_PO (WAVLAB850)
+		> FWT2_PBS (WAVLAB850)
+	> getwavpar
+        > MakeBSFilter (WAVLAB850)
+		> MakeONFilter (WAVLAB850)
+	> iwt2
+        > IWT2_PO (WAVLAB850)
+		> IWT2_PBS (WAVLAB850)
+	> savepatsplit
+		> map
+		> wavpatmat
+			> IWT2_PO (WAVLAB850)
+			> IWT2_PBS (WAVLAB850)
+	> spc
+		> ncsnmf
+		> wavpatmat
+			> IWT2_PO (WAVLAB850)
+			> IWT2_PBS (WAVLAB850)	
+cr
+psnr		
+spiritopt	
+readcheckdataset
+	> fwt2
+	> getwavpar
+		> MakeBSFilter (WAVLAB850)
+		> MakeONFilter (WAVLAB850)
