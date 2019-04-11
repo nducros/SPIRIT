@@ -22,7 +22,9 @@ function m = spc(f,ind,opt,j)
 max_dyn = 2^opt.b-1;
 I = length(ind);
 
+
 if strcmpi(opt.exp,'split')
+%% Pattern splitting
     m_pos = zeros(I,1);
     m_neg = zeros(I,1);
     wavelet_folder = [opt.patdir filesep opt.patname];
@@ -30,28 +32,36 @@ if strcmpi(opt.exp,'split')
     q_f_vec = opt.Q_f(ind);
 
     for i = 1:I
-        %- Read the pos and neg pattern corresponding to ind_pattern(i)
+        %- read the pos and neg pattern corresponding to ind_pattern(i)
         p_pos = double(imread([wavelet_folder filesep opt.patname '_' num2str(2*ind_pattern(i)-1) '.png']));
         p_neg = double(imread([wavelet_folder filesep opt.patname '_' num2str(2*ind_pattern(i)) '.png']));
-
-        m_pos(i) = f' * p_pos(:); % One SPC measurement
-        m_neg(i) = f' * p_neg(:); % One SPC measurement
+        %- compute dot product (mean value)
+        m_pos(i) = f' * p_pos(:); 
+        m_neg(i) = f' * p_neg(:);
 
     end
-
+    
+    %- corrupt measurements with Poisson noise
     if opt.noise
        rng(1); % to get predictable sequence of numbers
        m_pos = poissrnd(opt.dt/max_dyn * m_pos + opt.dt * opt.alpha);
-       m_neg = poissrnd(opt.dt/max_dyn * m_neg + opt.dt * opt.alpha); 
-       m_pos = (max_dyn * q_f_vec / opt.dt) .* m_pos;
-       m_neg = (max_dyn * q_f_vec / opt.dt) .* m_neg;   
-       m = m_pos - m_neg;
-    else
-        m = q_f_vec .* (m_pos - m_neg);  % Final SPC measurement
+       m_neg = poissrnd(opt.dt/max_dyn * m_neg + opt.dt * opt.alpha);
     end
-
     
+    %- post-treatment (scaling)
+    if opt.noise
+       m_pos = (q_f_vec*max_dyn/opt.dt).* m_pos;
+       m_neg = (q_f_vec*max_dyn/opt.dt).* m_neg;   
+    else
+       m_pos = q_f_vec.*m_pos;
+       m_neg = q_f_vec.*m_neg; 
+    end
+    
+    %- final SPC measurement
+    m = m_pos - m_neg;  
+
 elseif strcmpi(opt.exp,'SNMF')
+%% Pattern generalization
     
     %- Desired patterns
     Q = wavpatmat(ind,opt);
