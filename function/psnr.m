@@ -33,7 +33,7 @@ function [PSNR_val,MSE] = psnr(F_ref,F)
 [H,W] = size(F_ref);
 
 if size(F,1) ~= H || size(F,2) ~= W
-    error('Images must have the same size !');
+    error('Images must have the same size!');
 end
 
 max_I_ref = max(F_ref(:));
