@@ -2,10 +2,10 @@
 /pattern/
 /pattern_1D/
 /test/
-/*.asv
+*.asv
 /data/chirurgie/
 /data/cifar-10-batches-mat/
 /data/imagenet/
 /data/microscopy/
 /data/stl10_matlab/
-/*.zip
+*.zip
