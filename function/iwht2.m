@@ -1,5 +1,5 @@
 % IWHT2   2-D Inverse Walsh-Hadamard Transform
-%   Y = IWT2(X) is the 2-D inverse Walsh-Hadamard transform of the N-by-N 
+%   Y = IWHT2(X) is the 2-D inverse Walsh-Hadamard transform of the N-by-N 
 %   image X. The inverse transform coefficients are stored in the 
 %   N-by-N image Y. 
 %
@@ -7,7 +7,7 @@
 %   inverse transform coefficients. ORDERING can be 'sequency', 'hadamard' 
 %   or 'dyadic'. Default ORDERING type is 'sequency'.
 %
-%   See Also IFWHT FWHT FWHT2 SPIRITOPT
+%   See Also IFWHT FWHT2 SPIRITOPT
 
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France

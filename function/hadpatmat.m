@@ -1,9 +1,10 @@
 % HADPATMAT Create a matrix containing 2D Hadamard patterns.
-%   Q = HADPATMAT(N) produces a D-by-D matrix Q that contains the Hadamard
-%   patterns where D = N^2.
+%   Q = HADPATMAT(N) produces a D-by-D matrix Q, with D=N*N, that contains 
+%   Hadamard patterns.
 %
 %   Q = HADPATMAT(N,IND) produces a I-by-D matrix Q that contains only the 
-%   Hadamard patterns whose index are specified by the vector IND of length I.
+%   Hadamard patterns that are specified by the indices IND. The vector IND
+%   has length I.
 %
 %   Example: Create all the 4x4 Hadamard patterns
 %   -------
