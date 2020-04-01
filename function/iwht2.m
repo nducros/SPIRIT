@@ -7,7 +7,7 @@
 %   inverse transform coefficients. ORDERING can be 'sequency', 'hadamard' 
 %   or 'dyadic'. Default ORDERING type is 'sequency'.
 %
-%   See Also IFWHT FWHT2 SPIRITOPT
+%   See Also IFWHT FWHT2 HADPATMAT SPIRITOPT
 
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France

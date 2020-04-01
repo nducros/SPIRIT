@@ -6,7 +6,7 @@
 %   transform coefficients. ORDERING can be 'sequency', 'hadamard' or 
 %   'dyadic'. Default ORDERING type is 'sequency'.
 %
-%   See Also IWHT2 FWHT SPIRITOPT
+%   See Also IWHT2 FWHT HADPATMAT SPIRITOPT
 
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France
