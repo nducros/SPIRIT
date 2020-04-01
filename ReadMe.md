@@ -1,43 +1,45 @@
 # SPIRiT
 *Single-Pixel Image Reconstruction Toolbox (SPIRiT)
-Version 2.0, 29th April 2018.*
+Version 2.1, 1st April 2020.*
 
 This package contains Matlab scripts and functions that simulate the acquisition and reconstruction of an image with a single-pixel camera.
 
-## Content of version 2.0
-SPIRiT 2.0 implements:
-  - the ABS-WP acquisition method described in [1].
-  - the SNMF pattern generalization method described in [2].
+## New Features!
+  - Fast Hadamard 2D transform
+```
+help fwht2
+```
+  - Completion of missing data
+  ```
+help datcomp
+```
 
-Two main scripts are provided: 
-   - `main_abswp_simulation.m` that simulates data acquisition
-   - `main_abswp_experimental.m` that processes experimental data
+## Content of version 2.1
+SPIRiT 2.1 implements:
+  * (from v2.1) The Bayesian completion method described in [3]. 
+  See `main_completion_stl10.m`.
+  * (from v2.0) The SNMF pattern generalization method described in [2].
+  See `main_abswp_simulation.m` and `main_abswp_experimental.m`.
+  * (from v2.0) The ABS-WP adaptive acquisition method described in [1].
+  See `main_abswp_simulation.m` and `main_abswp_experimental.m`.
 
-The `.\function\` folder contains all the functions called in the main scripts. 
-> **Note:** Running one of the main scripts will automatically add the function folder to your Matlab search path.
-
+The `.\function\` folder contains the functions called in the main scripts. 
 The `.\data\` folder contains:
    - three PNG images that can be reconstructed by `main_abswp_simulation.m`
     - two experimental datasets (MAT-files) that can be processed by `main_abswp_simulation.m`. See `.\data\Readme.txt` for details about the datasets.
 
-The `.\reference\` folder contains the references [1] and [2].
-
-## New Features!
-  - Help & documentation. Check it out!
-```
-help spiritopt
-```
-  - SNMF-based solver for pattern generalization 
-```
-help cnsnmf
-```
+The `.\reference\` folder contains the PDF of [1], [2], and [3].
 
 ## Installation
-SPIRiT requires the following toolboxes to run:
+Just make sure to add `.\function\` to your Matlab search path.
+```
+path(fullfile(pwd,'function'),path);
+```
+SPIRiT may require one of the following toolboxes to run:
    - [Image Processing Toolbox](https://fr.mathworks.com/products/image.html) (MathWorks)
    - [Statistics and Machine Learning Toolbox](https://fr.mathworks.com/products/statistics.html) (MathWorks), to corrupt data with Poisson noise
    - [Wavelab850](http://statweb.stanford.edu/~wavelab/). 
-> **Note:** Make sure Wavelab850 appears at the top of your search path to avoid conflits
+> **Note:** If required, make sure Wavelab850 appears at the top of your search path to avoid conflits
 
 ## Contact
 nicolas.ducros@insa-lyon.fr, University of Lyon, France.
@@ -46,10 +48,13 @@ nicolas.ducros@insa-lyon.fr, University of Lyon, France.
 SPIRiT is distributed freely under Creative Commons Attribution-ShareAlike 4.0 International license ([CC-BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)) 
 
 ## References
-[1] F. Rousset et al., "Adaptive basis scan by wavelet prediction for single-pixel imaging", IEEE Transactions on Computational Imaging, 3, 36-46, 2017. 
-http://dx.doi.org/10.1109/TCI.2016.2637079
-https://hal.archives-ouvertes.fr/hal-01314314v2/document
-   
-[2] F. Rousset et al., "A semi nonnegative matrix factorization technique for pattern generalization in single-pixel imaging", IEEE Transactions on Computational Imaging, in press
+[3] N. Ducros et al., "A completion network for reconstruction from compressed acquisition', IEEE ISBI, 2020.
+https://hal.archives-ouvertes.fr/hal-02342766/document
+
+[2] F. Rousset et al., "A semi nonnegative matrix factorization technique for pattern generalization in single-pixel imaging", IEEE Transactions on Computational Imaging, 4(2), 284-294, 2018.
 https://doi.org/10.1109/TCI.2018.2811910
 https://hal.archives-ouvertes.fr/hal-01635461/document
+
+[1] F. Rousset et al., "Adaptive basis scan by wavelet prediction for single-pixel imaging", IEEE Transactions on Computational Imaging, 3(1), 36-46, 2017. 
+http://dx.doi.org/10.1109/TCI.2016.2637079
+https://hal.archives-ouvertes.fr/hal-01314314/document
