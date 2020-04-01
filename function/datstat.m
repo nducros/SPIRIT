@@ -5,7 +5,7 @@ function [C, mu] = datstat(Y, dataSuffix, dataFolder,  plotTag)
 %   each of size Nx-by-Ny. The covariance C is an N-by-M matrix, with 
 %   N = Nx*Ny.
 %
-%   [C, MU] = DATSTAT(Y) also computes the Nx-by-Ny mean image MU.
+%   [C, MU] = DATSTAT(Y) also computes the N-by-1 mean vector MU.
 %   
 %   [C, MU] = DATSTAT(Y, DATASUFFIX) also saves as MAT-files the covariance
 %   and mean on in the current folder on the disk. DATASUFFIX is used as a 
@@ -53,14 +53,14 @@ if plotTag
         figure; 
         subplot(121);
         imagesc(log(abs(C))); axis image; colorbar;
-        title(['Covariance matrix (log of magnitude) - ',dataSuffix]);
+        title(['Covariance matrix (log of magnitude)',dataSuffix]);
         %
         subplot(122);
-        semilogy(abs(mu));
-        title(['Mean vector - ',dataSuffix]);
+        semilogy(log(abs(mu)));
+        title(['Mean vector (magnitude)',dataSuffix]);
     else
         figure;
         imagesc(log(abs(C))); axis image; colorbar;
-        title(['Covariance matrix - ',dataSuffix]);
+        title(['Covariance matrix (log of magnitude)',dataSuffix]);
     end
 end
