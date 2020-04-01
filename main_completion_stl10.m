@@ -20,6 +20,8 @@
 %   Toolbox: SPIRiT 2.1 https://github.com/nducros/SPIRIT
 %   License: CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 
+%%
+path(fullfile(pwd,'function'),path);
 
 %%   Download the stl-10 (NOT TESTED YET!)
 %- This can be done manually if the gunzip or untar functions are not available.
