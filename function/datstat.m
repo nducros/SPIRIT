@@ -1,5 +1,5 @@
 function [C, mu] = datstat(Y, dataSuffix, dataFolder,  plotTag)
-% DATSTAT Computes (and saves) database statistics
+%% DATSTAT Computes (and saves) database statistics
 %   C = DATSTAT(Y) returns the covariance matrix C corresponging to the
 %   image database Y.  The Nx-by-Ny-by-K database Y consists of K images 
 %   each of size Nx-by-Ny. The covariance C is an N-by-M matrix, with 
@@ -17,16 +17,15 @@ function [C, mu] = datstat(Y, dataSuffix, dataFolder,  plotTag)
 % 
 %   [...] = DATSTAT(..., PLOTTAG) plots the statistics when PLOTTAG is TRUE.
 %
-%   Example:
-%   Todo!!
+%   Example: see MAIN_COMPLETION_STL10.m below
 %
-%   See Also: DATCOMP
+%   See Also: DATCOMP MAIN_COMPLETION_STL10
 %
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France
 %   Contact: nicolas.ducros@creatis.insa-lyon.fr
-%   Date: April 2019
-%   Toolbox: SPIRiT 2.0 https://github.com/nducros/SPIRIT
+%   Date: 02 April 2020
+%   Toolbox: SPIRiT 2.1 https://github.com/nducros/SPIRIT
 %   License: CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 
 %% Default values for inputs
@@ -53,14 +52,14 @@ if plotTag
         figure; 
         subplot(121);
         imagesc(log(abs(C))); axis image; colorbar;
-        title(['Covariance matrix (log of magnitude)',dataSuffix]);
+        title(['Covariance matrix (log of magnitude) - ',dataSuffix]);
         %
         subplot(122);
         semilogy(log(abs(mu)));
-        title(['Mean vector (magnitude)',dataSuffix]);
+        title(['Mean vector (magnitude) - ',dataSuffix]);
     else
         figure;
         imagesc(log(abs(C))); axis image; colorbar;
-        title(['Covariance matrix (log of magnitude)',dataSuffix]);
+        title(['Covariance matrix (log of magnitude) - ',dataSuffix]);
     end
 end

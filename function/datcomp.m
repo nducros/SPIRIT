@@ -1,5 +1,5 @@
 function Y = datcomp(X, C, mu)
-% DATCOMP Data completion
+%% DATCOMP Data completion
 %   Y = DATCOMP(X, C, MU) fills the zero elements in X using the covariance
 %   matrix C and the mean MU. The argument X can be a N-by-1 vector or a 
 %   Nx-by-Ny matrix; C is an N-by-N matrix, with N = Nx*Ny when X is a 
@@ -10,7 +10,7 @@ function Y = datcomp(X, C, mu)
 % 
 %   Example: see script below
 %
-%   See also COMPLETION_STL10
+%   See also MAIN_COMPLETION_STL10
 %
 %   [1] N. Ducros, A Lorente Mur, F Peyrin. 'A completion network for 
 %   reconstruction from compressed acquisition', IEEE ISBI, 2020.
