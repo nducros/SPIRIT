@@ -15,11 +15,7 @@ function X = preprocess_stl10(dataFolder, dataset, saveFolder)
 %   X = PREPROCESS_STL10(DATAFOLDER, DATASET, SAVEFOLDER) saves the array X
 %   in the SAVEFOLDER folder. By default, X is saved in DATAFOLDER.
 %   
-%   See also MAIN_COMPLETION_STL10
-%
-%   [1] A. Coates, H. Lee, A.Y. Ng. 'An Analysis of Single Layer Networks 
-%   in Unsupervised Feature Learning', AISTATS, 2011.
-%   PDF: http://cs.stanford.edu/~acoates/papers/coatesleeng_aistats_2011.pdf
+%   See also LOADPREP_STL10 MAIN_COMPLETION_STL10
 
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France
