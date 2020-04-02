@@ -5,13 +5,17 @@ Version 2.1, 1st April 2020.*
 This package contains Matlab scripts and functions that simulate the acquisition and reconstruction of an image with a single-pixel camera.
 
 ## New Features!
+  - Recontruction by completion of missing data
+  ```
+help datcomp
+```
   - Fast Hadamard 2D transform
 ```
 help fwht2
 ```
-  - Completion of missing data
-  ```
-help datcomp
+  - Pre-processing and playing with the STL-10 database
+```
+help preprocess_stl10
 ```
 
 ## Content of version 2.1
@@ -23,12 +27,24 @@ SPIRiT 2.1 implements:
   * (from v2.0) The ABS-WP adaptive acquisition method described in [1].
   See `main_abswp_simulation.m` and `main_abswp_experimental.m`.
 
-The `.\function\` folder contains the functions called in the main scripts. 
+The `.\function\` folder contains the functions that are called in the above scripts. 
 The `.\data\` folder contains:
-   - three PNG images that can be reconstructed by `main_abswp_simulation.m`
-    - two experimental datasets (MAT-files) that can be processed by `main_abswp_simulation.m`. See `.\data\Readme.txt` for details about the datasets.
+   - three PNG images that are processed in `main_abswp_simulation.m`
+   - two experimental datasets (MAT-files) that can be processed by `main_abswp_experimental.m`. For details, see `.\data\Readme.txt`.
 
 The `.\reference\` folder contains the PDF of [1], [2], and [3].
+## Datasets
+We provide: 
+* A function to preprocess the STL-10 database that can be downloaded at https://ai.stanford.edu/~acoates/stl10/
+* Two experimental datasets (Department of Physics, Politecnico di Milano, Italy) of the Jaszczak target acquired using wavelet patterns, initially published in [1]. For details, see `.\data\Readme.txt`.
+
+## Experimental setup
+The experimental setup (Department of Physics, Politecnico di Milano, Italy) was composed of:
+   - a supercontinuum pulsed laser source (SC-450, Fianium)
+   - an IF filter with center wavelength at 650 nm for uniform illumination of the object
+   - a 1024×768 DMD (DLP7000 - V7001, Vialux)
+   - a lens
+   - a photomultiplier (HPM-100-50, Becker & Hickl GmbH). 
 
 ## Installation
 Just make sure to add `.\function\` to your Matlab search path.
