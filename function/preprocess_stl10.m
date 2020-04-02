@@ -41,24 +41,26 @@ load(fullfile(dataFolder, [dataset,'.mat']));
 %% Preprocessing
 disp('-- Preprocessing')
 %-- Convert to grayscale
-X_im = double(reshape(X,[size(X,1),96,96,3]));
+X_im = uint16(reshape(X,[size(X,1),96,96,3]));
+clear X;
 X_im = sum(X_im,4);
+
+%-- set global max to 255
+X_im = X_im/(double(max(X_im(:)))/255);
+X_im = uint8(X_im);
+
 X_im = permute(X_im, [2,3,1]);
 
 %-- init output
-X = zeros(64,64,size(X_im,3));
+X = zeros(64,64,size(X_im,3),'uint8');
 
 %-- resize and normalize all images
 for ii=1:size(X_im,3) 
     X(:,:,ii) = imresize(X_im(:,:,ii),[64,64]); % to get a power of two
-    %X(:,:,ii) = X(:,:,ii)/max(max(X(:,:,ii)))*255;
 end
-X = X/max(X(:))*255;
-X = round(X);
 
 %% Save as preprocessed images (8-bit)
 disp('-- Saving preprocessed data')
-X = uint8(X);
 fullfilename = fullfile(saveFolder,[dataset,'_gray_64x64.mat']);
 save(fullfilename,'X','-v7.3');
 
