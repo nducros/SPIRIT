@@ -3,9 +3,9 @@ function X = preprocess_stl10(dataFolder, dataset, saveFolder)
 %                  https://ai.stanford.edu/~acoates/stl10/
 %   
 %   X = PREPROCESS_STL10(DATAFOLDER, DATASET) returns a 64-by-64-by-K array
-%   containing 8-bit images. It loads the raw STL10 subset DATASET 
-%   within the DATAFOLDER folder. The original 96-by-96 color images are 
-%   resized and converted to 64-by-64 grayscale images. 
+%   containing 8-bit images. The STL10 subset DATASET is assumed to be 
+%   saved in the DATAFOLDER folder. The original 96-by-96 color images are 
+%   loaded, resized and converted to 64-by-64 grayscale images. 
 %
 %   DATASET can be string among:
 %      'unlabeled'   - K = 100'000 images
