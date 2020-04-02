@@ -1,10 +1,12 @@
 function X = preprocess_stl10(dataFolder, dataset, saveFolder)
 %% PREPROCESS_STL10 Preprocess the STL-10 dataset 
+%                  https://ai.stanford.edu/~acoates/stl10/
+%   
 %   X = PREPROCESS_STL10(DATAFOLDER, DATASET) returns a 64-by-64-by-K array
-%   containing 8-bit images. It loads the raw data subset DATASET within 
-%   the DATAFOLDER folder. The raw 96-by-96 color images are resized and 
-%   converted to 64-by-64 grayscale images. 
-% 
+%   containing 8-bit images. It loads the raw STL10 subset DATASET 
+%   within the DATAFOLDER folder. The original 96-by-96 color images are 
+%   resized and converted to 64-by-64 grayscale images. 
+%
 %   DATASET can be string among:
 %      'unlabeled'   - K = 100'000 images
 %      'test'        - K = 8'000 images
@@ -15,17 +17,13 @@ function X = preprocess_stl10(dataFolder, dataset, saveFolder)
 %   
 %   See also MAIN_COMPLETION_STL10
 %
-%   [1] N. Ducros, A Lorente Mur, F Peyrin. 'A completion network for 
-%   reconstruction from compressed acquisition', IEEE ISBI, 2020.
-%   PDF: https://hal.archives-ouvertes.fr/hal-02342766/
-%
-%   [2] A. Coates, H. Lee, A.Y. Ng. 'An Analysis of Single Layer Networks 
+%   [1] A. Coates, H. Lee, A.Y. Ng. 'An Analysis of Single Layer Networks 
 %   in Unsupervised Feature Learning', AISTATS, 2011.
 %   PDF: http://cs.stanford.edu/~acoates/papers/coatesleeng_aistats_2011.pdf
 
 %   Author: N. Ducros
 %   Institution: Creatis laboratory, University of Lyon, France
-%   Date: 01 April 2020
+%   Date: 02 April 2020
 %   Toolbox: SPIRiT 2.1 https://github.com/nducros/SPIRIT
 %   License: CC-BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/
 
