@@ -33,18 +33,11 @@ The `.\data\` folder contains:
    - two experimental datasets (MAT-files) that can be processed by `main_abswp_experimental.m`. For details, see `.\data\Readme.txt`.
 
 The `.\reference\` folder contains the PDF of [1], [2], and [3].
+
 ## Datasets
 We provide: 
 * A function to preprocess the STL-10 database that can be downloaded at https://ai.stanford.edu/~acoates/stl10/
 * Two experimental datasets (Department of Physics, Politecnico di Milano, Italy) of the Jaszczak target acquired using wavelet patterns, initially published in [1]. For details, see `.\data\Readme.txt`.
-
-## Experimental setup
-The experimental setup (Department of Physics, Politecnico di Milano, Italy) was composed of:
-   - a supercontinuum pulsed laser source (SC-450, Fianium)
-   - an IF filter with center wavelength at 650 nm for uniform illumination of the object
-   - a 1024×768 DMD (DLP7000 - V7001, Vialux)
-   - a lens
-   - a photomultiplier (HPM-100-50, Becker & Hickl GmbH). 
 
 ## Installation
 Just make sure to add `.\function\` to your Matlab search path.
