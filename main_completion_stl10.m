@@ -29,7 +29,7 @@ path(fullfile(pwd,'function'),path);
 url = 'http://ai.stanford.edu/~acoates/stl10/stl10_matlab.tar.gz';
 disp('-- Loading stl-10 dataset')
 gunzip(url, 'data');
-untar('.\data\stl10_matlab.tar','data');
+untar(fullfile('.\data\stl10_matlab.tar'),'data');
 
 %% User-defined
 dataFolder = '.\data\stl10_matlab\';

@@ -31,10 +31,12 @@ function X = preprocess_stl10(dataFolder, dataset, saveFolder)
 
 %% Default arguments
 if nargin<3, saveFolder = dataFolder; end
+saveFolder = fullfile(saveFolder); 
+dataFolder = fullfile(dataFolder);
 
 %% Load raw data
 disp('-- Loading raw data')
-load([dataFolder, dataset,'.mat']);
+load(fullfile(dataFolder, [dataset,'.mat']));
 
 %% Preprocessing
 disp('-- Preprocessing')
