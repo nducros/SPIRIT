@@ -16,6 +16,7 @@ help fwht2
   - Pre-processing and playing with the STL-10 database
 ```
 help preprocess_stl10
+help loadprep_stl10
 ```
 
 ## Content of version 2.1
