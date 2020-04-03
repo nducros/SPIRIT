@@ -32,7 +32,7 @@ gunzip(url, 'data');
 untar(fullfile('data','stl10_matlab.tar'),'data');
 
 %% User-defined
-dataFolder = '.\data\stl10_matlab\';
+dataFolder = fullfile('data','stl10_matlab');
 saveFolder = dataFolder; 
 testset = 'test';       %-    8'000 images. 'train' works too (5'000 images)
 trainset = 'unlabeled'; %-  100'000 images
