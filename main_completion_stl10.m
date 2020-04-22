@@ -23,7 +23,7 @@
 %%
 path(fullfile(pwd,'function'),path);
 
-%%   Download the stl-10 (NOT TESTED YET!)
+%%   Download the stl-10
 %- This can be done manually if the gunzip or untar functions are not available.
 %- http://ai.stanford.edu/~acoates/stl10/stl10_matlab.tar.gz
 url = 'http://ai.stanford.edu/~acoates/stl10/stl10_matlab.tar.gz';
@@ -37,7 +37,7 @@ saveFolder = dataFolder;
 testset = 'test';       %-    8'000 images. 'train' works too (5'000 images)
 trainset = 'unlabeled'; %-  100'000 images
 %- compression ratio
-ratio = 0.1;            %- retain 1% of the measurements
+ratio = 0.1;            %- retain 10% of the measurements
 
 %% Preprocess training data
 X = preprocess_stl10(dataFolder, trainset, saveFolder);
@@ -68,14 +68,12 @@ sigma = sqrt(diag(C));
 [~, ind_acq] = maxk(sigma(:), floor(ratio*size(X,1)*size(X,2)));
 
 %% Reconstruction of one of the test images
-ii = 5;     % <- change this to test reconstruction of other images
+ii = 10;     % <- change this to test reconstruction of other images
 Y_test = Y(:,:,ii);
-
 %-- zero padding
 Y_zp = zeros(size(Y,1),size(Y,2));
 Y_zp(ind_acq) = Y_test(ind_acq);
 X_zp = iwht2(Y_zp);
-
 %-- Bayesian completion
 Y_bc = datcomp(Y_zp, C, mu);
 X_bc = iwht2(Y_bc);
@@ -93,3 +91,4 @@ title(sprintf('Zero-padding - PSNR = %.2f dB', psnr(X(:,:,ii),X_zp)));
 subplot(133); 
 imagesc(X_bc(:,:,1),[0 255]); axis image; colorbar;
 title(sprintf('Bayesian completion - PSNR = %.2f dB', psnr(X(:,:,ii),X_bc)));
+colormap gray

@@ -4,6 +4,7 @@
 /function_dev/
 /test/
 *.asv
+*.fig
 /data/chirurgie/
 /data/cifar-10-batches-mat/
 /data/imagenet/
