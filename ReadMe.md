@@ -40,6 +40,9 @@ We provide:
 * A function to preprocess the STL-10 database that can be downloaded at https://ai.stanford.edu/~acoates/stl10/
 * Two experimental datasets (Department of Physics, Politecnico di Milano, Italy) of the Jaszczak target acquired using wavelet patterns, initially published in [1]. For details, see `.\data\Readme.txt`.
 
+## Illustration
+![Hadamard acquisition for a 10% sampling ratio (see `main_completion_stl10.m`)](main_completion_stl10.png)
+
 ## Installation
 Just make sure to add `.\function\` to your Matlab search path.
 ```
